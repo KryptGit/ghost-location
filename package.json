@@ -12,6 +12,7 @@
     "preview": "vite --host 127.0.0.1",
     "build": "vite build",
     "start": "npm run build && electron .",
+    "headless": "npm run build && node headless/server.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:ios-stream": "node scripts/stress-ios-refresh.mjs",
     "test:renderer-session": "npm run build && node scripts/check-renderer-session.mjs",
