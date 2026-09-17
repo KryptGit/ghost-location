@@ -87,3 +87,14 @@ Tests use replaced transports and never operate a phone:
 
 Hardware validation is still required for each supported iOS release, OS/CPU
 target, phone lock/sleep, unplug/replug, crash/normal quit, and intended phone app.
+
+## Manual hold-a-location test
+
+`ping-dallas.sh [duration_seconds]` drives this bridge directly to hold a
+connected iPhone's simulated location at a fixed point (default: downtown
+Dallas, TX; default duration 60s) for manual testing on real hardware,
+without needing the Electron app or headless server running. It opens one
+persistent session and relies on the refresh loop above to keep it live —
+see `docs/hardware-bringup-log.md` for why a naive loop of one-shot CLI
+calls does *not* work (each call opens and tears down its own tunnel, so
+the location snaps back to the real GPS between calls).
